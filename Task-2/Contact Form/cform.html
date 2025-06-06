@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="cform.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo" class="logo" />
+    <form class="container" id="contactForm" novalidate>
+      <h2>Contact Us</h2>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <div class="error" id="nameError"></div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error" id="emailError"></div>
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <div class="phone-wrapper">
+          <select id="countryCode">
+            <option value="+91" data-length="10">🇮🇳 +91</option>
+            <option value="+1" data-length="10">🇺🇸 +1</option>
+            <option value="+44" data-length="10">🇬🇧 +44</option>
+            <option value="+81" data-length="10">🇯🇵 +81</option>
+          </select>
+          <input type="tel" id="phone" name="phone" placeholder="Enter number..." required />
+        </div>
+        <div class="error" id="phoneError"></div>
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required maxlength="250"
+          placeholder="Max 250 characters..."></textarea>
+        <div class="error" id="messageError"></div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <script src="cform.js"></script>
+</body>
+</html>
