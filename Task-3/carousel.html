@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Carousel</title>
+  <link rel="stylesheet" href="carousel.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Image Carousel & Dynamic Gallery</h1>
+    <button id="darkModeToggle" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;"><i id="toggleIcon" class='bx bx-moon'></i></button>
+  </header>
+
+  <div class="container">
+    <div class="carousel" id="carousel">
+      <img src="https://picsum.photos/id/1015/1200/400" alt="Default 1" />
+      <img src="https://picsum.photos/id/1016/1200/400" alt="Default 2" />
+      <img src="https://picsum.photos/id/1018/1200/400" alt="Default 3" />
+    </div>
+
+    <div class="upload-section">
+      <label for="imageUpload">Upload Your Images</label>
+      <input type="file" id="imageUpload" accept="image/*" multiple />
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <script src="carousel.js"></script>
+</body>
+</html>

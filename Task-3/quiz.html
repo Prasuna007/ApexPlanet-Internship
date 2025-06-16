@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Quiz</title>
+  <link rel="stylesheet" href="quiz.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Random Quiz</h1>
+    <button id="darkModeToggle" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;"><i id="toggleIcon" class='bx bx-moon'></i></button>
+  </header>
+  <div class="quiz-container">
+    <form id="quizForm"></form>
+    <button id="submitBtn">Submit</button>
+    <div id="scoreDisplay"></div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
