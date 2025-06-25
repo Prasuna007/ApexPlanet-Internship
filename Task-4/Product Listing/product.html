@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedestal Store</title>
+  <style>
+    :root {
+      --accent-color: #1c7c54; /* Pedestal Green */
+    }
+
+    * {
+      transition: all 0.3s ease-in-out;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      flex-wrap: wrap;
+    }
+
+    .filters select {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      color: var(--accent-color);
+      background-color: #f0f0f0;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .product {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      transform: translateY(0);
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .product h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: var(--accent-color);
+    }
+
+    .product p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pedestal Store</h1>
+  </header>
+
+  <div class="filters">
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home</option>
+    </select>
+
+    <select id="priceFilter">
+      <option value="all">All Prices</option>
+      <option value="low">Below $50</option>
+      <option value="medium">$50 - $200</option>
+      <option value="high">Above $200</option>
+    </select>
+
+    <select id="sortOption">
+      <option value="default">Sort by</option>
+      <option value="rating">Rating</option>
+      <option value="priceLowHigh">Price: Low to High</option>
+      <option value="priceHighLow">Price: High to Low</option>
+    </select>
+  </div>
+
+  <div class="products" id="productGrid">
+    <!-- Products inserted via JavaScript -->
+  </div>
+
+  <script>
+    const products = [
+      { name: 'Smartphone', category: 'electronics', price: 299, rating: 4.5 },
+      { name: 'T-Shirt', category: 'fashion', price: 25, rating: 4.0 },
+      { name: 'Blender', category: 'home', price: 89, rating: 4.2 },
+      { name: 'Jeans', category: 'fashion', price: 60, rating: 3.8 },
+      { name: 'TV', category: 'electronics', price: 499, rating: 4.6 },
+      { name: 'Lamp', category: 'home', price: 35, rating: 4.1 },
+      { name: 'Laptop', category: 'electronics', price: 899, rating: 4.7 },
+      { name: 'Shoes', category: 'fashion', price: 120, rating: 4.3 },
+      { name: 'Couch', category: 'home', price: 750, rating: 4.4 },
+      { name: 'Headphones', category: 'electronics', price: 150, rating: 4.2 },
+      { name: 'Jacket', category: 'fashion', price: 80, rating: 4.0 },
+      { name: 'Toaster', category: 'home', price: 45, rating: 3.9 },
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const priceFilter = document.getElementById('priceFilter');
+    const sortOption = document.getElementById('sortOption');
+
+    function renderProducts() {
+      let filtered = [...products];
+
+      const category = categoryFilter.value;
+      const price = priceFilter.value;
+      const sort = sortOption.value;
+
+      if (category !== 'all') {
+        filtered = filtered.filter(p => p.category === category);
+      }
+
+      if (price !== 'all') {
+        filtered = filtered.filter(p => {
+          if (price === 'low') return p.price < 50;
+          if (price === 'medium') return p.price >= 50 && p.price <= 200;
+          if (price === 'high') return p.price > 200;
+        });
+      }
+
+      if (sort === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } else if (sort === 'priceLowHigh') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sort === 'priceHighLow') {
+        filtered.sort((a, b) => b.price - a.price);
+      }
+
+      productGrid.innerHTML = filtered.map(p => `
+        <div class="product">
+          <h3>${p.name}</h3>
+          <p>Category: ${p.category}</p>
+          <p>Price: $${p.price}</p>
+          <p>Rating: ${p.rating}</p>
+        </div>
+      `).join('');
+    }
+
+    categoryFilter.addEventListener('change', renderProducts);
+    priceFilter.addEventListener('change', renderProducts);
+    sortOption.addEventListener('change', renderProducts);
+
+    renderProducts();
+  </script>
+</body>
+</html>
