@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavender Dreams Bookstore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ==================== NAVBAR ==================== -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo"><i class="fa-solid fa-book"></i> Lavender&nbsp;Reads</a>
+      <ul class="nav-links">
+        <li><a href="#genres">Genres</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#bestsellers">Best Sellers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button class="icon-btn" id="navWishlist" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i><span class="badge" id="wishCount">0</span>
+        </button>
+        <button class="icon-btn" id="navCart" aria-label="Cart">
+          <i class="fa-solid fa-cart-shopping"></i><span class="badge" id="cartCount">0</span>
+        </button>
+        <button aria-label="Toggle dark mode" class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== GENRE CAROUSEL ==================== -->
+  <section id="genres" class="genre-carousel">
+    <div class="genre-track">
+      <div class="genre">Fantasy</div>
+      <div class="genre">Science Fiction</div>
+      <div class="genre">Romance</div>
+      <div class="genre">Thriller</div>
+      <div class="genre">Mystery</div>
+      <div class="genre">Young Adult</div>
+      <div class="genre">Poetry</div>
+      <div class="genre">Self‑Help</div>
+      <div class="genre">Historical Fiction</div>
+      <div class="genre">Horror</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="genre">Fantasy</div>
+      <div class="genre">Science Fiction</div>
+      <div class="genre">Romance</div>
+      <div class="genre">Thriller</div>
+      <div class="genre">Mystery</div>
+      <div class="genre">Young Adult</div>
+      <div class="genre">Poetry</div>
+      <div class="genre">Self‑Help</div>
+      <div class="genre">Historical Fiction</div>
+      <div class="genre">Horror</div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Lavender Reads is more than a bookstore—it's a dreamscape for book lovers. Whether you're chasing dragons or navigating heartbreak, we're here to fill your shelf with stories that stick.</p>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCTS GRID ==================== -->
+  <section id="bestsellers" class="products container">
+    <h2 style="margin-bottom:1.5rem;font-size:1.75rem;font-weight:600;">Best Sellers</h2>
+    <div class="grid" id="productGrid">
+      <!-- Example Product -->
+      <div class="product-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1602190253i/52578297.jpg" alt="Book Cover"/>
+        <div class="product-info">
+          <h3>The Midnight Library</h3>
+          <span class="price">₹499</span>
+        </div>
+        <div class="actions">
+          <button class="action-btn wishlist"><i class="fa-regular fa-heart"></i></button>
+          <button class="action-btn add-cart"><i class="fa-solid fa-cart-plus"></i></button>
+          <button class="action-btn open-details"><i class="fa-solid fa-expand"></i></button>
+        </div>
+        <div class="details">
+          <button class="close-details"><i class="fa-solid fa-xmark"></i></button>
+          <h3>The Midnight Library</h3>
+          <p>Award‑winning novel about life, regrets, and the infinite possibilities that shape our existence.</p>
+          <button class="btn add-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Repeat products as needed (placeholder images) -->
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="https://cdn.kobo.com/book-images/7b28ea73-4eec-4e3c-9b8e-b0695eeb549c/353/569/90/False/project-hail-mary-1.jpg" alt="Book Cover"/>
+        <div class="product-info">
+          <h3>Project Hail Mary</h3>
+          <span class="price">₹599</span>
+        </div>
+        <div class="actions">
+          <button class="action-btn wishlist"><i class="fa-regular fa-heart"></i></button>
+          <button class="action-btn add-cart"><i class="fa-solid fa-cart-plus"></i></button>
+          <button class="action-btn open-details"><i class="fa-solid fa-expand"></i></button>
+        </div>
+        <div class="details">
+          <button class="close-details"><i class="fa-solid fa-xmark"></i></button>
+          <h3>Project Hail Mary</h3>
+          <p>A thrilling outer‑space survival story by the author of The Martian, blending science and heart.</p>
+          <button class="btn add-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1668782119i/40097951.jpg" alt="Book Cover"/>
+        <div class="product-info">
+          <h3>The Silent Patient</h3>
+          <span class="price">₹449</span>
+        </div>
+        <div class="actions">
+          <button class="action-btn wishlist"><i class="fa-regular fa-heart"></i></button>
+          <button class="action-btn add-cart"><i class="fa-solid fa-cart-plus"></i></button>
+          <button class="action-btn open-details"><i class="fa-solid fa-expand"></i></button>
+        </div>
+        <div class="details">
+          <button class="close-details"><i class="fa-solid fa-xmark"></i></button>
+          <h3>The Silent Patient</h3>
+          <p>An addictive psychological thriller about a woman's act of violence against her husband—and the therapist obsessed with uncovering why.</p>
+          <button class="btn add-cart"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- More products can be added following the same structure -->
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Have a query or want to recommend a book? Email us at <a href="mailto:hello@lavenderreads.com">hello@lavenderreads.com</a> or follow us on Instagram @lavenderreads.</p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p><span style="color:var(--accent);">© 2025 Lavender Reads.</span> All rights reserved. Made with <span style="color:var(--accent);">♥</span> and endless cups of hot chocolate.</p>
+  </footer>
+
+  <!-- ==================== BACK TO TOP BUTTON ==================== -->
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
